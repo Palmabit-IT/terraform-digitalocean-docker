@@ -14,7 +14,6 @@ resource "digitalocean_droplet" "app-droplet" {
     user        = "root"
     private_key = "${file(var.private_key_path)}"
     type        = "ssh"
-    #host = "${digitalocean_droplet.app.ipv4_address}"
     host    = "${self.ipv4_address}"
     agent   = true
     timeout = "2m"

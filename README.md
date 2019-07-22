@@ -8,12 +8,12 @@ Terraform to setup a droplet with nginx, docker, let's encrypt and DO monitoring
 * Terraform v0.12.4 - [https://www.terraform.io/](https://www.terraform.io/)
 * Digital Ocean Token [https://www.digitalocean.com/docs/api/create-personal-access-token/](https://www.digitalocean.com/docs/api/create-personal-access-token/)
 
-## Environment variables
+## Environment variables (optional)
 
 * do_token - api token for digital ocean which can be found in your DigitalOcean Account under "API"
 * ssh_fingerprint - the ssh fingerprint to use to connect to your newly created droplets
 
-Exaple DO_TOKEN:
+Example DO_TOKEN:
 
 ```
 export DO_TOKEN=5f58.....
@@ -28,7 +28,14 @@ $ ssh-keygen -E md5 -lf ~/.ssh/id_rsa.pub | awk '{print $2}'
 
 ## How to run
 
-### Show plan
+### Init
+
+```
+$  terraform init
+```
+
+
+### Show validate
 
 ```
 $  terraform validate
@@ -63,7 +70,7 @@ If the Droplet already exists when you add these lines you will need to run
 $  terraform refresh
 ```
 
-### destroy
+### Destroy
 
 ```
 $  terraform destroy -input=false 
