@@ -19,13 +19,6 @@ resource "digitalocean_droplet" "app-droplet" {
     timeout = "2m"
   }
 
-  # Enable DO Monitoring
-  provisioner "remote-exec" {
-    inline = [
-      "curl -sSL https://repos.insights.digitalocean.com/install.sh | sudo bash"
-    ]
-  }
-
   provisioner "remote-exec" {
     inline = [
       "export PATH=$PATH:/usr/bin",
@@ -60,6 +53,13 @@ resource "digitalocean_droplet" "app-droplet" {
     ]
   }
 
+   # Enable DO Monitoring
+  provisioner "remote-exec" {
+    inline = [
+      "curl -sSL https://repos.insights.digitalocean.com/install.sh | sudo bash"
+    ]
+  }
+
   # Copies the nginx.conf file to /etc/myapp.conf
   provisioner "file" {
     source      = "resources/nginx.conf"
@@ -72,5 +72,7 @@ resource "digitalocean_droplet" "app-droplet" {
       "sudo /etc/init.d/nginx restart"
     ]
   }
+
+
 
 }
