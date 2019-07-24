@@ -11,6 +11,9 @@
 *.tfstate
 *.tfstate.*
 
+# log files
+*.log
+
 # Crash log files
 crash.log
 

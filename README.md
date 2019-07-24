@@ -10,13 +10,17 @@ Terraform to setup a droplet with nginx, docker, let's encrypt and DO monitoring
 
 ## Environment variables (optional)
 
-* do_token - api token for digital ocean which can be found in your DigitalOcean Account under "API"
-* ssh_fingerprint - the ssh fingerprint to use to connect to your newly created droplets
+* DO_TOKEN - api token for digital ocean which can be found in your DigitalOcean Account under "API"
+* ssh_fingerprints - the list of ssh fingerprints to use to connect to your newly created droplets
+* TF_LOG_PATH
+* TF_LOG
 
 Example DO_TOKEN:
 
 ```
 export DO_TOKEN=5f58.....
+export TF_LOG_PATH="terraform.log"
+export TF_LOG_PATH=TRACE
 ```
 
 Get ssh_fingerprint:
