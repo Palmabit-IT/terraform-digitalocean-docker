@@ -1,6 +1,6 @@
 # Terraform Digitalocean
 
-Terraform to setup a droplet with nginx, docker, let's encrypt and DO monitoring.
+Terraform to setup a droplet with nginx, docker, gitlab user for CI, let's encrypt and DO monitoring. 
 
 
 ## Prerequisites
@@ -51,7 +51,7 @@ $  terraform validate
 $  terraform plan -out=tfplan -input=false 
     -var "do_token=${DO_TOKEN}"
     -var "private_key_path=$HOME/.ssh/id_rsa"
-    -var "ssh_fingerprint=${SSH_FINGERPRINT}" 
+    -var 'ssh_fingerprints=["${SSH_FINGERPRINT}"]'
     -var "droplet_name=My_Droplet"     
 ```
 
@@ -60,7 +60,6 @@ $  terraform plan -out=tfplan -input=false
 ```
 $  terraform show
 ```
-
 
 ### Execute plan
 
@@ -80,7 +79,7 @@ $  terraform refresh
 $  terraform destroy -input=false 
     -var "do_token=${DO_TOKEN}" 
     -var "private_key_path=$HOME/.ssh/id_rsa"
-    -var "ssh_fingerprint=${SSH_FINGERPRINT}" 
+    -var 'ssh_fingerprints=["${SSH_FINGERPRINT}"]'
     -var "droplet_name=My_Droplet"   
 ```
 
